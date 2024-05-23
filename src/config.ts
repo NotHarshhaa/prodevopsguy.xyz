@@ -1,10 +1,10 @@
 import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  author: "Sat Naing",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
+  website: "https://prodevopsguy.tech/", // replace this with your deployed domain
+  author: "ProDevOpsGuy",
+  desc: "Free DevOps/Cloud Tech Community",
+  title: "ProDevOpsGuy Tech",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,
@@ -19,14 +19,14 @@ export const LOCALE = {
 export const LOGO_IMAGE = {
   enable: false,
   svg: true,
-  width: 216,
-  height: 46,
+  width: 450,
+  height: 50,
 };
 
 export const SOCIALS: SocialObjects = [
   {
     name: "Github",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://github.com/NotHarshhaa",
     linkTitle: ` ${SITE.title} on Github`,
     active: true,
   },
@@ -34,17 +34,17 @@ export const SOCIALS: SocialObjects = [
     name: "Facebook",
     href: "https://github.com/satnaing/astro-paper",
     linkTitle: `${SITE.title} on Facebook`,
-    active: true,
+    active: false,
   },
   {
     name: "Instagram",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://instagram.com/prodevopsguy",
     linkTitle: `${SITE.title} on Instagram`,
     active: true,
   },
   {
     name: "LinkedIn",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://linkedin.com/in/harshhaa-vardhan-reddy",
     linkTitle: `${SITE.title} on LinkedIn`,
     active: true,
   },
@@ -74,9 +74,9 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "WhatsApp",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://chat.whatsapp.com/EEHYHnty7s8DozPtSsKYdJ",
     linkTitle: `${SITE.title} on WhatsApp`,
-    active: false,
+    active: true,
   },
   {
     name: "Snapchat",
@@ -134,9 +134,9 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Telegram",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://t.me/prodevopsguy",
     linkTitle: `${SITE.title} on Telegram`,
-    active: false,
+    active: true,
   },
   {
     name: "Mastodon",
