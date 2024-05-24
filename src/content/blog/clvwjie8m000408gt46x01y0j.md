@@ -82,13 +82,13 @@ _Example of a Policy Document:_
 
 [![Image description](https://media.dev.to/cdn-cgi/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fysuetl4z0xwvkdv6qy55.png)](https://media.dev.to/cdn-cgi/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fysuetl4z0xwvkdv6qy55.png)
 
-\*`IAM` is Universal
+- `IAM` is Universal
 
-\*_User has no permission when first created_
+- _User has no permission when first created_
 
-\*Access ID and secret keys aren’t the same as username and passwords. And only get to see them once , so save them in a secure location.
+- Access ID and secret keys aren’t the same as username and passwords. And only get to see them once , so save them in a secure location.
 
-\*Always set up password rotations & you can create and customize your own rotation policies.
+- Always set up password rotations & you can create and customize your own rotation policies.
 
 ## The Building Blocks of IAM :
 
@@ -285,15 +285,11 @@ S3 Glacier Flexible Retrieval delivers low-cost storage, up to 10% lower cost (t
 
 S3 Glacier Deep Archive is Amazon S3’s lowest-cost storage class and supports long-term retention and digital preservation for data that may be accessed once or twice in a year. It is designed for customers—particularly those in highly-regulated industries, such as financial services, healthcare, and public sectors—that retain data sets for 7—10 years or longer to meet regulatory compliance requirements. S3 Glacier Deep Archive can also be used for backup and disaster recovery use cases, and is a cost-effective and easy-to-manage alternative to magnetic tape systems.
 
-[![Alt text](https://dev.to/Photos/Highest%20cost-1.png)](https://dev.to/Photos/Highest%20cost-1.png)
-
 ## Lifecycle Management with S3
 
 - Lifecycle Mangement automates moving your objects between different storage tiers, thereby maximizing cost effectiveness.
 - Can be used in conjunction with versioning.
 - Lifecycle rules can be applied to both current and previous versions of an object.
-
-[![Watch the video](https://res.cloudinary.com/practicaldev/image/fetch/s--As6ggWy8--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://i9.ytimg.com/vi/bZ3sks1ruXg/mqdefault.jpg%3Fsqp%3DCMDaua4G-oaymwEmCMACELQB8quKqQMa8AEB-AH-BYAC4AOKAgwIABABGGAgYChgMA8%253D%26rs%3DAOn4CLBmmu48s2JS6B4N_k5VI5DCkaWXgg%26retry%3D4)](https://youtu.be/bZ3sks1ruXg)
 
 ## S3 Object Lock
 
@@ -340,29 +336,29 @@ Once locked, the policy can no longer be changed.
 - HTTPS
 ```
 
-1. **Encryption at Rest**:
+2. **Encryption at Rest**:
 
    When the immobile data sitting inside S3 is encrypted. If someone breaks into a server, they still won’t be able to access encrypted info within that server. Encryption at rest can be done either on the server-side or the client-side. The server-side is when S3 encrypts your data as it is being written to disk and decrypts it when you access it. The client-side is when you personally encrypt the object on your own and then upload it into S3 afterwards.
 
-   ### Server-Side Encryption -
+### Server-Side Encryption -
 
-   _You encrypt files after uploading them to the cloud._
+_You encrypt files after uploading them to the cloud._
 
-   **S3 Managed Keys / SSE - S3 (server side encryption S3 )**
+**S3 Managed Keys / SSE - S3 (server side encryption S3 )**
 
-   > When Amazon manages the encryption and decryption keys for you automatically. In this scenario, you concede a little control to Amazon in exchange for ease of use.
+> When Amazon manages the encryption and decryption keys for you automatically. In this scenario, you concede a little control to Amazon in exchange for ease of use.
 
-   **AWS Key Management Service / SSE - KMS**
+**AWS Key Management Service / SSE - KMS**
 
-   > When Amazon and you both manage the encryption and decryption keys together.
+> When Amazon and you both manage the encryption and decryption keys together.
 
-   **Server Side Encryption w/ customer provided keys / SSE - C**
+**Server Side Encryption w/ customer provided keys / SSE - C**
 
-   > When I give Amazon my own keys that I manage. In this scenario, you concede ease of use in exchange for more control.
+> When I give Amazon my own keys that I manage. In this scenario, you concede ease of use in exchange for more control.
 
-   ### Client-Side Encryption -
+### Client-Side Encryption -
 
-   _You encrypt the files yourself before you upload them to S3._
+_You encrypt the files yourself before you upload them to S3._
 
 > All Amazon S3 Buckets have encryption configured by default.  
 > All objects are automatically encrypted by using server-side encryption with Amazon S3 managed keys(SSE-S3).  
@@ -442,11 +438,9 @@ Every time a file is uploaded to S3, a PUT request is initiated.
 Replication enables automatic, asynchronous copying of objects across Amazon S3 buckets. Buckets that are configured for object replication can be owned by the same AWS account or by different accounts. You can replicate objects to a single destination bucket or to multiple destination buckets. The destination buckets can be in different AWS Regions or within the same Region as the source bucket.
 
 1. You can replicate objects from one bucket to another, Versioning must be enabled on both the source and destination buckets.
-2. Objects in an existing bucket are not replicated automatically, Once replication is turned on, all subsequent updated objects will be replicated automatically. _Upload objects after turning on the replication_
+2. Objects in an existing bucket are not replicated automatically, Once replication is turned on, all subsequent updated objects will be replicated automatically. Upload objects after turning on the replication
 3. Delete markers are not replicated by default,  
-   Deleting individual versions or delete markers will not be replicated._If you delete an item in the source bucket then the object in the destination bucket will not be deleted_
-
-   [![Watch the video](https://res.cloudinary.com/practicaldev/image/fetch/s--XqPnJsZy--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://i9.ytimg.com/vi/I19dMeKkms8/mqdefault.jpg%3Fsqp%3DCKT0ua4G-oaymwEmCMACELQB8quKqQMa8AEB-AH-CIAC0AWKAgwIABABGFcgQihyMA8%3D%26rs%3DAOn4CLDmc4ORTB7eHOMUR0ZxRD1HpWjuZw)](https://youtu.be/I19dMeKkms8)
+   Deleting individual versions or delete markers will not be replicated.If you delete an item in the source bucket then the object in the destination bucket will not be deleted
 
 ---
 
