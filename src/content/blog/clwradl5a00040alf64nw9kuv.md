@@ -4,7 +4,7 @@ pubDatetime: 2024-05-29T03:48:17Z
 title: The Ultimate CICD Corporate DevOps Pipeline Project
 slug: the-ultimate-cicd-corporate-devops-pipeline-project
 ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1716954161102/44c6fbaa-4e49-4f61-b4f7-2898e3006d6c.png
-featured: true
+featured: false
 draft: false
 tags:
   - aws

@@ -4,7 +4,7 @@ pubDatetime: 2024-05-07T15:23:07Z
 title: AWS Certified Solutions Architect - Associate
 slug: aws-certified-solutions-architect-associate
 ogImage: "/assets/aws-artitect-banner.png"
-featured: true
+featured: false
 draft: false
 tags:
   - cloud

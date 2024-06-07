@@ -4,7 +4,7 @@ pubDatetime: 2024-05-30T11:45:11Z
 title: AWS with Terraform and Jenkins Pipeline
 slug: aws-with-terraform-and-jenkins-pipeline
 ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1717136641997/d02bcaf8-8665-4321-b437-715824a9272b.png
-featured: true
+featured: false
 draft: false
 tags:
   - aws

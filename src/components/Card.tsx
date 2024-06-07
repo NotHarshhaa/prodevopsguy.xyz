@@ -23,7 +23,7 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
     <li className="my-6">
       <a
         href={href}
-        className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0 flex w-full flex-col items-center rounded-lg border p-4 shadow md:flex-row"
+        className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0 flex w-full flex-col items-center rounded-lg border p-4 shadow md:flex-row max-w-3xl sm:max-w-6xl"
       >
         <img
           src={imageSrc}

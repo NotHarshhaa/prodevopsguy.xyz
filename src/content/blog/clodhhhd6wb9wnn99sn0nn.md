@@ -4,7 +4,7 @@ pubDatetime: 2024-05-29T10:23:22Z
 title: Create a GitHub Actions Workflow to Deploy Terraform Code to Azure
 slug: create-a-github-actions-workflow-to-deploy-terraform-code-to-azure
 ogImage: https://i.ibb.co/PxQkHz9/1-JB6-UOyosibyt20-MJuie-Rog.jpg
-featured: true
+featured: false
 draft: false
 tags:
   - azure

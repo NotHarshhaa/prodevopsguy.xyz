@@ -4,7 +4,7 @@ pubDatetime: 2024-06-03T04:06:21Z
 title: Zomato Clone - Secure Deployment with DevSecOps CI/CD
 slug: zomato-clone-secure-deployment-with-devsecops-cicd
 ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1703130382144/3e119a63-2687-4fe2-b1c3-053774166e15.png
-featured: true
+featured: false
 draft: false
 tags:
   - devsecops
