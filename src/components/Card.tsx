@@ -39,7 +39,6 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
               </span>
             ))}
           </div>
-          <p>{description}</p>
           <Datetime pubDatetime={pubDatetime} modDatetime={modDatetime} readingTime={readingTime} />
         </div>
       </a>
