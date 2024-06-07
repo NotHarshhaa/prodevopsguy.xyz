@@ -16,25 +16,22 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
 
   const headerProps = {
     style: { viewTransitionName: slugifyStr(title) },
-    className: "text-lg font-medium decoration-dashed hover:underline",
+    className: "text-lg font-semibold decoration-dashed hover:underline",
   };
 
   return (
-    <li className="my-6">
+    <li className="my-8 mx-auto max-w-3xl sm:max-w-6xl">
       <a
         href={href}
-        className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0 flex w-full flex-col items-center rounded-lg border p-4 shadow md:flex-row max-w-3xl sm:max-w-6xl"
+        className="block transform overflow-hidden rounded-lg border shadow-md transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg md:flex motion-safe:hover:scale-105 motion-safe:transition-transform"
       >
-        <img
-          src={imageSrc}
-          alt=""
-          className="h-96 w-full rounded-t-lg object-cover md:h-auto md:w-48 md:rounded-none md:rounded-l-lg"
-        />
-        <div className="flex flex-col justify-between p-4 leading-normal">
+        <img src={imageSrc} alt="" className="h-48 w-full object-cover md:h-auto md:w-48" />
+        <div className="p-4 md:flex-1">
           {secHeading ? <h2 {...headerProps}>{title}</h2> : <h3 {...headerProps}>{title}</h3>}
-          <div className="flex flex-wrap gap-2">
+          <p className="hidden md:block mt-2 text-green-600 dark:text-pink-600">{description}</p>
+          <div className="mt-4 flex flex-wrap gap-2">
             {tags.map(tag => (
-              <span key={tag} className="bg-skin-muted rounded-full px-2 py-1 text-sm font-medium text-skin-base">
+              <span key={tag} className="bg-gray-100 text-gray-800 rounded-full px-3 py-1 text-sm font-medium">
                 {tag}
               </span>
             ))}
