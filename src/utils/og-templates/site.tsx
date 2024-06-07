@@ -76,9 +76,7 @@ export default () => {
               fontSize: 28,
             }}
           >
-            <span style={{ overflow: "hidden", fontWeight: "bold" }}>
-              {new URL(SITE.website).hostname}
-            </span>
+            <span style={{ overflow: "hidden", fontWeight: "bold" }}>{new URL(SITE.website).hostname}</span>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ author: ProDevOpsGuy Team
 pubDatetime: 2023-11-06T05:37:48Z
 title: Setting up Prometheus and Grafana Integration on Kubernetes with Helm
 slug: setting-up-prometheus-and-grafana-integration-on-kubernetes-with-helm
+ogImage: "/assets/c6a3e219-d38c-496a-a6f9-d41487573ee6.png"
 featured: false
 draft: false
 tags:

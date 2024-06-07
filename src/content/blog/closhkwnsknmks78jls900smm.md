@@ -3,6 +3,7 @@ author: ProDevOpsGuy Team
 pubDatetime: 2024-06-04T18:18:34Z
 title: Common Ansible Errors and Their Solutions for DevOps Engineer
 slug: common-ansible-errors-and-their-solutions-for-devops-engineer
+ogImage: "/assets/ansible-banner.png"
 featured: false
 draft: false
 tags:

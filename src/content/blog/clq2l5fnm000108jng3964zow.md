@@ -3,6 +3,7 @@ author: ProDevOpsGuy Team
 pubDatetime: 2024-04-26T16:57:24Z
 title: Microservice Delivery on Kubernetes using Jenkins, Helm Charts, and Argo CD
 slug: microservice-delivery-on-kubernetes-using-jenkins-helm-charts-and-argo-cd
+ogImage: "/assets/1060d81a-d0e4-4f3c-af50-cb737f7c7b41.jpeg"
 featured: true
 draft: false
 tags:

@@ -3,6 +3,7 @@ author: ProDevOpsGuy Team
 pubDatetime: 2024-05-28T10:50:36Z
 title: GitHub - 30 GitHub commands used by every DevOps Engineer
 slug: 30-github-commands-used-by-every-devops-engineer
+ogImage: "/assets/github-commands-banner.png"
 featured: true
 draft: false
 tags:

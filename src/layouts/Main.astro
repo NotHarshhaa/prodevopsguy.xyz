@@ -23,9 +23,7 @@ const { props } = Astro;
     "titleTransition" in props ? (
       <h1>
         {props.pageTitle[0]}
-        <span transition:name={props.titleTransition}>
-          {props.pageTitle[1]}
-        </span>
+        <span transition:name={props.titleTransition}>{props.pageTitle[1]}</span>
       </h1>
     ) : (
       <h1>{props.pageTitle}</h1>
@@ -37,7 +35,7 @@ const { props } = Astro;
 
 <style>
   #main-content {
-    @apply mx-auto w-full max-w-3xl px-4 pb-4;
+    @apply mx-auto w-full max-w-3xl sm:max-w-6xl px-4 pb-4;
   }
   #main-content h1 {
     @apply text-2xl font-semibold sm:text-3xl;

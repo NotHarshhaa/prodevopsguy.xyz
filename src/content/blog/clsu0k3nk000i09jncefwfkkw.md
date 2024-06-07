@@ -3,6 +3,7 @@ author: ProDevOpsGuy Team
 pubDatetime: 2024-02-20T06:57:54Z
 title: How to deploy DaemonSets Service in Kubernetes (K8s)?
 slug: how-to-deploy-daemonsets-service-in-kubernetes-k8s
+ogImage: "/assets/8990dc0a-bfe8-474d-bc6c-33a0e5176730.jpeg"
 featured: false
 draft: false
 tags:

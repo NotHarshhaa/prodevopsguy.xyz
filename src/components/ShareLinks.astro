@@ -43,11 +43,7 @@ const shareLinks = [
   <div class="text-center">
     {
       shareLinks.map(social => (
-        <LinkButton
-          href={`${social.href + URL}`}
-          className="link-button"
-          title={social.linkTitle}
-        >
+        <LinkButton href={`${social.href + URL}`} className="link-button" title={social.linkTitle}>
           <Fragment set:html={socialIcons[social.name]} />
           <span class="sr-only">{social.linkTitle}</span>
         </LinkButton>

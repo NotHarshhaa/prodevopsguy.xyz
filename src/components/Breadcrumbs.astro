@@ -8,8 +8,7 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
 
 // if breadcrumb is Home > Posts > 1 <etc>
 // replace Posts with Posts (page number)
-breadcrumbList[0] === "posts" &&
-  breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
+breadcrumbList[0] === "posts" && breadcrumbList.splice(0, 2, `Posts (page ${breadcrumbList[1] || 1})`);
 
 // if breadcrumb is Home > Tags > [tag] > [page] <etc>
 // replace [tag] > [page] with [tag] (page number)
@@ -18,9 +17,7 @@ breadcrumbList[0] === "tags" &&
   breadcrumbList.splice(
     1,
     3,
-    `${breadcrumbList[1]} ${
-      Number(breadcrumbList[2]) === 1 ? "" : "(page " + breadcrumbList[2] + ")"
-    }`
+    `${breadcrumbList[1]} ${Number(breadcrumbList[2]) === 1 ? "" : "(page " + breadcrumbList[2] + ")"}`
   );
 ---
 
@@ -34,10 +31,7 @@ breadcrumbList[0] === "tags" &&
       breadcrumbList.map((breadcrumb, index) =>
         index + 1 === breadcrumbList.length ? (
           <li>
-            <span
-              class={`${index > 0 ? "lowercase" : "capitalize"}`}
-              aria-current="page"
-            >
+            <span class={`${index > 0 ? "lowercase" : "capitalize"}`} aria-current="page">
               {/* make the last part lowercase in Home > Tags > some-tag */}
               {decodeURIComponent(breadcrumb)}
             </span>
@@ -55,7 +49,7 @@ breadcrumbList[0] === "tags" &&
 
 <style>
   .breadcrumb {
-    @apply mx-auto mb-1 mt-8 w-full max-w-3xl px-4;
+    @apply mx-auto mb-1 mt-8 w-full max-w-3xl sm:max-w-6xl px-4;
   }
   .breadcrumb ul li {
     @apply inline;

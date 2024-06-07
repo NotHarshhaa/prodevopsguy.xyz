@@ -3,6 +3,7 @@ author: ProDevOpsGuy Team
 pubDatetime: 2024-02-03T16:52:35Z
 title: Real-world Prometheus Deployment - A Practical Guide for Kubernetes Monitoring
 slug: real-world-prometheus-deployment-a-practical-guide-for-kubernetes-monitoring
+ogImage: "/assets/dfb45145-b62f-4e8c-b648-309cb4eeb51c.png"
 featured: false
 draft: false
 tags:

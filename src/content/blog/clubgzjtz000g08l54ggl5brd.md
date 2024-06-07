@@ -3,6 +3,7 @@ author: ProDevOpsGuy Team
 pubDatetime: 2024-03-28T16:49:36Z
 title: DevSecOps - GitLab CI/CD Amazon App Deployment on AWS EKS
 slug: devsecops-gitlab-cicd-amazon-app-deployment-on-aws-eks
+ogImage: "/assets/b0d73656-ebd6-408d-a00c-7807de8af5df.png"
 featured: false
 draft: false
 tags:

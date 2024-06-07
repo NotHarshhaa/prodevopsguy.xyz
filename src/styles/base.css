@@ -6,12 +6,12 @@
   :root,
   :root,
   html[data-theme="light"] {
-    --color-fill: 250, 252, 252;
-    --color-text-base: 34, 46, 54;
-    --color-accent: 211, 0, 106;
-    --color-card: 234, 206, 219;
-    --color-card-muted: 241, 186, 212;
-    --color-border: 227, 169, 198;
+    --color-fill: 254, 254, 254;
+    --color-text-base: 1, 1, 1;
+    --color-accent: 40, 108, 69;
+    --color-card: 190, 189, 188;
+    --color-card-muted: 187, 199, 137;
+    --color-border: 37, 189, 86;
   }
   html[data-theme="dark"] {
     --color-fill: 0, 1, 35;
@@ -36,7 +36,7 @@
   }
   section,
   footer {
-    @apply mx-auto max-w-3xl px-4;
+    @apply mx-auto max-w-6xl px-4;
   }
   a {
     @apply outline-2 outline-offset-1 outline-skin-fill 
