@@ -43,13 +43,43 @@ const layoutProps = {
 
   <div class="mx-auto flex w-full max-w-3xl sm:max-w-6xl justify-start px-2">
     <button
-      class="focus-outline mb-2 mt-8 flex hover:opacity-75"
+      class="go-back-btn"
+      aria-label="Go back"
       onclick="(() => (history.length === 1) ? window.location = '/' : history.back())()"
     >
-      <svg xmlns="http://www.w3.org/2000/svg"
-        ><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
-      </svg><span>Go back</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="go-back-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M19 12H5m7-7l-7 7 7 7"></path>
+      </svg>
+      <span>Go back</span>
     </button>
+
+    <style>
+      .go-back-btn {
+        @apply inline-flex items-center justify-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+      }
+      .go-back-icon {
+        @apply mr-2 -ml-1 h-5 w-5;
+      }
+      .go-back-btn:hover {
+        @apply transform scale-105;
+      }
+      .go-back-btn:focus {
+        @apply ring-opacity-50;
+      }
+    </style>
   </div>
   <main id="main-content">
     <h1 transition:name={slugifyStr(title)} class="post-title">{title}</h1>
@@ -88,6 +118,9 @@ const layoutProps = {
   }
   .post-title {
     @apply text-2xl font-semibold text-skin-accent;
+  }
+  #back-to-top {
+    @apply fixed bottom-4 right-4 p-2 bg-skin-accent text-white rounded-full;
   }
 </style>
 
