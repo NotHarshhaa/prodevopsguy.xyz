@@ -21,17 +21,17 @@ const {
   author = SITE.author,
   description = SITE.desc,
   ogImage = SITE.ogImage,
-  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  canonicalURL = new URL(Astro.url.pathname, SITE.url).href,
   pubDatetime,
   modDatetime,
   scrollSmooth = false,
 } = Astro.props;
 
-const socialImageURL = new URL(ogImage ?? SITE.ogImage ?? "og.png", Astro.url.origin).href;
+const socialImageURL = new URL(ogImage ?? SITE.ogImage ?? "og.png", SITE.url).href;
 ---
 
 <!doctype html>
-<html lang=`${LOCALE.lang ?? "en"}` class={`${scrollSmooth && "scroll-smooth"}`}>
+<html lang={`${LOCALE.lang ?? "en"}`} class={`${scrollSmooth && "scroll-smooth"}`}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
