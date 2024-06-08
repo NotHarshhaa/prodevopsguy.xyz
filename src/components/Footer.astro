@@ -11,7 +11,7 @@ export interface Props {
 const { noMarginTop = false } = Astro.props;
 ---
 
-<footer class={`${noMarginTop ? "" : "mt-auto"}`}>
+<footer class={`${noMarginTop ? "" : "mt-auto"} bg-skin-fill text-skin-base`}>
   <Hr noPadding />
   <div class="footer-wrapper">
     <Socials centered />
@@ -25,21 +25,24 @@ const { noMarginTop = false } = Astro.props;
 
 <style>
   footer {
-    @apply w-full;
+    @apply w-full bg-skin-fill text-skin-base;
   }
   .footer-wrapper {
-    @apply flex flex-col items-center justify-between py-6 sm:flex-row-reverse sm:py-4;
+    @apply flex flex-col items-center justify-between py-6 sm:flex-row sm:py-4 space-y-4 sm:space-y-0;
   }
   .link-button {
-    @apply my-1 p-2 hover:rotate-6;
+    @apply my-1 p-2 transition-transform duration-300 ease-in-out hover:rotate-6;
   }
   .link-button svg {
     @apply scale-125;
   }
   .copyright-wrapper {
-    @apply my-2 flex flex-col items-center whitespace-nowrap sm:flex-row;
+    @apply my-2 flex flex-col items-center whitespace-nowrap sm:flex-row space-y-2 sm:space-y-0;
   }
   .separator {
     @apply hidden sm:inline;
+  }
+  .social-icon {
+    @apply transition-transform duration-300 ease-in-out hover:scale-110;
   }
 </style>
