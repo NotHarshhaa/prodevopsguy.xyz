@@ -21,32 +21,35 @@ const socialCount = SOCIALS.filter(social => social.active).length;
 
 <Layout>
   <Header />
-  <main id="main-content">
-    <section id="hero">
+  <main id="main-content" class="container mx-auto p-6">
+    <section
+      id="hero"
+      class="text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-16 rounded-lg shadow-lg dark:from-indigo-700 dark:via-purple-700 dark:to-pink-700"
+    >
       <h1>DevOps/Cloud Community</h1>
       <a target="_blank" href="/rss.xml" class="rss-link" aria-label="rss feed" title="RSS Feed">
         <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
           ><path d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"></path><path
             d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"></path><circle cx="6" cy="18" r="2"
-          ></circle>
-        </svg>
+          ></circle></svg
+        >
         <span class="sr-only">RSS Feed</span>
       </a>
 
-      <h2>
+      <h2 class="text-2xl sm:text-4xl font-semibold mt-6">
         Welcome to <strong>ProDevOpsGuy</strong> - Your Ultimate DevOps and Cloud Companion! 🌟
       </h2>
-      <p>
+      <p class="mt-4">
         Dive into the world of DevOps and Cloud with our daily dose of trending blogs, packed with the latest insights
         and innovations. Master new cloud tips and techniques that keep you ahead of the curve. Prepare for success with
         our comprehensive real-time interview questions and guides. Stay updated with job-related posts tailored for
         DevOps and Cloud professionals. Enhance your skills with our rich repository of code and scripts, designed to
         streamline your development and operations.
       </p>
-      <p>
+      <p class="mt-4">
         Join the <strong>ProDevOpsGuy</strong> community today and elevate your DevOps and Cloud journey! 🚀
       </p>
-      <p>
+      <p class="mt-4">
         Read the blog posts or
         <LinkButton
           className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
@@ -56,60 +59,59 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         </LinkButton> for more info.
       </p>
       {
-        // only display if at least one social link is enabled
         socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
+          <div class="social-wrapper mt-8">
+            <div class="social-links">Follow us on:</div>
             <Socials />
           </div>
         )
       }
     </section>
-
-    <Hr />
-
-    {
-      featuredPosts.length > 0 && (
-        <>
-          <section id="featured">
-            <h2>Featured</h2>
-            <ul>
-              {featuredPosts.map(({ data, slug }) => (
-                <Card href={`/posts/${slug}/`} frontmatter={data} secHeading={false} />
-              ))}
-            </ul>
-          </section>
-          {recentPosts.length > 0 && <Hr />}
-        </>
-      )
-    }
-
-    {
-      recentPosts.length > 0 && (
-        <section id="recent-posts">
-          <h2>Recent Posts</h2>
-          <ul>
-            {recentPosts.map(
-              ({ data, slug }, index) =>
-                index < 4 && <Card href={`/posts/${slug}/`} frontmatter={data} secHeading={false} />
-            )}
-          </ul>
-        </section>
-      )
-    }
-
-    <div class="all-posts-btn-wrapper">
-      <LinkButton href="/posts/">
-        All Posts
-        <svg xmlns="http://www.w3.org/2000/svg"
-          ><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
-        </svg>
-      </LinkButton>
-    </div>
   </main>
 
-  <Footer />
+  <Hr />
+
+  {
+    featuredPosts.length > 0 && (
+      <>
+        <section id="featured">
+          <h2>Featured</h2>
+          <ul>
+            {featuredPosts.map(({ data, slug }) => (
+              <Card href={`/posts/${slug}/`} frontmatter={data} secHeading={false} />
+            ))}
+          </ul>
+        </section>
+        {recentPosts.length > 0 && <Hr />}
+      </>
+    )
+  }
+
+  {
+    recentPosts.length > 0 && (
+      <section id="recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+          {recentPosts.map(
+            ({ data, slug }, index) =>
+              index < 4 && <Card href={`/posts/${slug}/`} frontmatter={data} secHeading={false} />
+          )}
+        </ul>
+      </section>
+    )
+  }
+
+  <div class="all-posts-btn-wrapper">
+    <LinkButton href="/posts/">
+      All Posts
+      <svg xmlns="http://www.w3.org/2000/svg"
+        ><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path>
+      </svg>
+    </LinkButton>
+  </div>
 </Layout>
+
+<Footer />
 
 <style>
   /* ===== Hero Section ===== */
