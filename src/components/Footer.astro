@@ -7,40 +7,33 @@ const currentYear = new Date().getFullYear();
 export interface Props {
   noMarginTop?: boolean;
 }
-
-const { noMarginTop = false } = Astro.props;
 ---
 
-<footer class={`${noMarginTop ? "" : "mt-auto"} bg-skin-fill text-skin-base`}>
-  <Hr noPadding />
-  <div class="footer-wrapper">
-    <Socials centered />
-    <div class="copyright-wrapper">
-      <span>ProDevOpsGuy Copyright &#169; {currentYear}</span>
-      <span class="separator">&nbsp;|&nbsp;</span>
-      <span>All rights reserved.</span>
+<footer
+  class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white shadow-lg dark:from-indigo-700 dark:via-purple-700 dark:to-pink-700 transition-all"
+>
+  <div class="container mx-auto py-8 px-4">
+    <Hr noPadding />
+    <div class="footer-wrapper flex flex-col items-center justify-center mt-8 space-y-6 sm:flex-row sm:justify-between">
+      <Socials centered />
+      <div class="copyright-wrapper flex flex-col items-center sm:flex-row sm:items-center">
+        <span class="text-lg">ProDevOpsGuy &copy; {currentYear}</span>
+        <span class="mx-2">•</span>
+        <span class="text-lg">All rights reserved.</span>
+      </div>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    @apply w-full bg-skin-fill text-skin-base;
+    @apply w-full rounded-t-lg overflow-hidden;
   }
   .footer-wrapper {
-    @apply flex flex-col items-center justify-between py-6 sm:flex-row sm:py-4 space-y-4 sm:space-y-0;
-  }
-  .link-button {
-    @apply my-1 p-2 transition-transform duration-300 ease-in-out hover:rotate-6;
-  }
-  .link-button svg {
-    @apply scale-125;
-  }
-  .copyright-wrapper {
-    @apply my-2 flex flex-col items-center whitespace-nowrap sm:flex-row space-y-2 sm:space-y-0;
+    @apply py-6 sm:flex-row sm:py-4 space-y-4 sm:space-y-0;
   }
   .separator {
-    @apply hidden sm:inline;
+    @apply hidden sm:inline text-gray-300;
   }
   .social-icon {
     @apply transition-transform duration-300 ease-in-out hover:scale-110;
