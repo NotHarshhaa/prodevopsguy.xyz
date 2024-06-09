@@ -40,25 +40,18 @@ export default function SearchBar({ searchList }: Props) {
   );
 
   useEffect(() => {
-    // if URL has search query,
-    // insert that search query in input field
     const searchUrl = new URLSearchParams(window.location.search);
     const searchStr = searchUrl.get("q");
     if (searchStr) setInputVal(searchStr);
-
-    // put focus cursor at the end of the string
-    setTimeout(function () {
+    setTimeout(() => {
       inputRef.current!.selectionStart = inputRef.current!.selectionEnd = searchStr?.length || 0;
     }, 50);
   }, []);
 
   useEffect(() => {
-    // Add search result only if
-    // input value is more than one character
     let inputResult = inputVal.length > 1 ? fuse.search(inputVal) : [];
     setSearchResults(inputResult);
 
-    // Update search string in URL
     if (inputVal.length > 0) {
       const searchParams = new URLSearchParams(window.location.search);
       searchParams.set("q", inputVal);
@@ -71,12 +64,12 @@ export default function SearchBar({ searchList }: Props) {
 
   return (
     <>
-      <div className="relative">
-        <label className="block">
-          <span className="absolute inset-y-0 left-0 flex items-center pl-2 opacity-75">
+      <div className="relative mb-6">
+        <label className="block relative">
+          <span className="absolute inset-y-0 left-0 flex items-center pl-2 text-gray-400 dark:text-gray-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6 text-gray-400"
+              className="h-6 w-6"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -89,7 +82,7 @@ export default function SearchBar({ searchList }: Props) {
             </svg>
           </span>
           <input
-            className="block w-full py-3 pl-10 pr-4 placeholder-gray-500 bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+            className="block w-full py-3 pl-10 pr-4 placeholder-gray-500 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition text-gray-900 dark:text-gray-100"
             placeholder="Search for anything..."
             type="text"
             name="search"
@@ -99,15 +92,14 @@ export default function SearchBar({ searchList }: Props) {
             ref={inputRef}
           />
         </label>
-
         {inputVal.length > 1 && (
-          <div className="mt-2 text-sm text-gray-500">
+          <div className="mt-2 text-sm text-gray-500 dark:text-gray-400">
             Found {searchResults?.length} {searchResults?.length === 1 ? "result" : "results"} for '{inputVal}'
           </div>
         )}
       </div>
 
-      <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
             <li key={`${refIndex}-${item.slug}`}>
