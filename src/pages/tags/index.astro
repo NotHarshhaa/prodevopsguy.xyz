@@ -16,9 +16,18 @@ let tags = getUniqueTags(posts);
 <Layout title={`Tags | ${SITE.title}`}>
   <Header activeNav="tags" />
   <Main pageTitle="Tags" pageDesc="All the tags used in posts.">
-    <ul>
-      {tags.map(({ tag }) => <Tag {tag} size="lg" />)}
+    <ul class="tags-grid">
+      {tags.map(({ tag }) => <Tag tag={tag} size="lg" />)}
     </ul>
   </Main>
   <Footer />
 </Layout>
+
+<style>
+  .tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+</style>

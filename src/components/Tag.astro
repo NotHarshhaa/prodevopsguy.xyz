@@ -1,31 +1,67 @@
 ---
 export interface Props {
   tag: string;
-  size?: "sm" | "lg";
+  size?: "sm" | "md" | "lg";
 }
 
-const { tag, size = "sm" } = Astro.props;
+const { tag, size = "md" } = Astro.props;
 ---
 
-<li class={`inline-block ${size === "sm" ? "my-1 underline-offset-4" : "my-3 mx-1 underline-offset-8"}`}>
-  <a
-    href={`/tags/${tag}/`}
-    class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group transition-transform duration-300 ease-in-out hover:scale-105`}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class={`inline ${size === "sm" ? "scale-75" : "scale-110"}`}
-      ><path
-        d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z"
-      ></path>
-    </svg>
-    &nbsp;<span>{tag}</span>
+<li class={`tag-card ${size}`}>
+  <a href={`/tags/${tag}/`} class="tag-link">
+    {tag}
   </a>
 </li>
 
 <style>
-  a {
-    @apply relative underline decoration-dashed text-skin-base hover:text-skin-accent focus-visible:p-1;
+  :root {
+    --bg-color-light: #ffffff;
+    --bg-color-dark: #ffffff; /* White background in dark mode */
+    --text-color-light: #000000;
+    --text-color-dark: #000000; /* Dark text in dark mode */
   }
-  a svg {
-    @apply inline mr-1 h-5 w-5 text-skin-base opacity-80 transition-all duration-300 ease-in-out group-hover:text-skin-accent;
+
+  .tag-card {
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem;
+    transition:
+      background-color 0.3s,
+      color 0.3s,
+      transform 0.3s;
+  }
+
+  .tag-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .tag-link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+  }
+
+  .tag-card.sm {
+    padding: 0.5rem;
+  }
+
+  .tag-card.md {
+    padding: 1rem;
+  }
+
+  .tag-card.lg {
+    padding: 1.5rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .tag-card {
+      background-color: var(--bg-color-dark); /* White background in dark mode */
+      color: var(--text-color-dark); /* Dark text in dark mode */
+      border: 1px solid #444;
+    }
   }
 </style>
