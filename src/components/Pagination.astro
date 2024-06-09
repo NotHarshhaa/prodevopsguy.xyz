@@ -20,18 +20,25 @@ const next = currentPage < totalPages ? "" : "disabled";
       <LinkButton
         disabled={prev === "disabled"}
         href={prevUrl}
-        className={`mr-4 select-none ${prev}`}
+        className={`pagination-button ${prev}`}
         ariaLabel="Previous"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class={`${prev}-svg`}>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
           <path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z" />
         </svg>
         Prev
       </LinkButton>
-      {currentPage} / {totalPages}
-      <LinkButton disabled={next === "disabled"} href={nextUrl} className={`ml-4 select-none ${next}`} ariaLabel="Next">
+      <span class="page-info">
+        {currentPage} / {totalPages}
+      </span>
+      <LinkButton
+        disabled={next === "disabled"}
+        href={nextUrl}
+        className={`pagination-button ${next}`}
+        ariaLabel="Next"
+      >
         Next
-        <svg xmlns="http://www.w3.org/2000/svg" class={`${next}-svg`}>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24">
           <path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z" />
         </svg>
       </LinkButton>
@@ -41,12 +48,55 @@ const next = currentPage < totalPages ? "" : "disabled";
 
 <style>
   .pagination-wrapper {
-    @apply mb-8 mt-auto flex justify-center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    margin-top: auto;
   }
-  .disabled {
-    @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
+
+  .pagination-button {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 0.375rem;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
   }
-  .disabled-svg {
-    @apply group-hover:!fill-skin-base;
+
+  .pagination-button:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+  }
+
+  .pagination-button svg.icon {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.5rem;
+    fill: currentColor;
+    transition: fill 0.3s ease;
+  }
+
+  .pagination-button.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  .pagination-button.disabled:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    border-color: transparent;
+  }
+
+  .page-info {
+    margin: 0 1rem;
+    font-size: 1rem;
+    font-weight: 500;
   }
 </style>

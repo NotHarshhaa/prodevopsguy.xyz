@@ -1,6 +1,7 @@
 import type socialIcons from "@assets/socialIcons";
 
 export type Site = {
+  url: string | URL | undefined;
   website: string;
   author: string;
   desc: string;
