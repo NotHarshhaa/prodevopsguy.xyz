@@ -10,7 +10,7 @@ export interface Props {
 const { activeNav } = Astro.props;
 ---
 
-<header>
+<header class="header">
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
@@ -106,93 +106,6 @@ const { activeNav } = Astro.props;
   <Hr />
 </header>
 
-<style>
-  #skip-to-content {
-    @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
-  }
-  .nav-container {
-    @apply mx-auto flex flex-col items-center justify-between sm:flex-row max-w-3xl sm:max-w-6xl;
-  }
-  .top-nav-wrap {
-    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
-  }
-  .logo {
-    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
-  }
-  .hamburger-menu {
-    @apply self-end p-1 sm:hidden;
-  }
-  .hamburger-menu svg {
-    @apply h-6 w-6 scale-125 fill-skin-base;
-  }
-
-  nav {
-    @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
-  }
-  nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
-  }
-  nav ul li {
-    @apply col-span-2 flex items-center justify-center;
-  }
-  nav ul li a {
-    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
-  }
-  nav ul li:nth-last-child(2) a {
-    @apply w-auto;
-  }
-  nav ul li:nth-last-child(1),
-  nav ul li:nth-last-child(2) {
-    @apply col-span-1;
-  }
-  nav a.active {
-    @apply underline decoration-wavy decoration-2 underline-offset-4;
-  }
-  nav a.active svg {
-    @apply fill-skin-accent;
-  }
-
-  nav button {
-    @apply p-1;
-  }
-  nav button svg {
-    @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
-  }
-  #theme-btn {
-    @apply p-3 sm:p-1 theme-toggle-btn;
-  }
-  #theme-btn svg {
-    @apply scale-125 transition-transform duration-300 hover:rotate-45 sm:scale-100;
-  }
-
-  .theme-toggle-btn {
-    @apply relative flex items-center justify-center p-2 w-12 h-12 rounded-full border-2 border-gray-400 dark:border-gray-600 shadow-md transition-colors duration-300;
-  }
-  .theme-toggle-btn::before {
-    content: "";
-    @apply absolute inset-0 rounded-full bg-gradient-to-r from-pink-500 to-yellow-500 opacity-0 transition-opacity duration-300;
-  }
-  .theme-toggle-btn:hover::before {
-    @apply opacity-100;
-  }
-
-  .theme-icon {
-    @apply w-6 h-6 transition-all duration-300 ease-in-out;
-  }
-  .menu-icon line {
-    @apply transition-opacity duration-75 ease-in-out;
-  }
-  .menu-icon .close {
-    opacity: 0;
-  }
-  .menu-icon.is-active .line {
-    @apply opacity-0;
-  }
-  .menu-icon.is-active .close {
-    @apply opacity-100;
-  }
-</style>
-
 <script>
   function toggleNav() {
     // Toggle menu
@@ -211,14 +124,140 @@ const { activeNav } = Astro.props;
 
   toggleNav();
 
-  // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", toggleNav);
+  window.addEventListener("scroll", function () {
+    const header = document.querySelector(".header");
 
-  const themeBtn = document.querySelector("#theme-btn");
-  if (themeBtn) {
-    themeBtn.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-      themeBtn.setAttribute("aria-label", document.documentElement.classList.contains("dark") ? "dark" : "light");
-    });
-  }
+    if (header) {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+  });
 </script>
+
+<style>
+  #skip-to-content {
+    @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
+  }
+
+  .nav-container {
+    @apply mx-auto flex flex-col items-center justify-between sm:flex-row max-w-3xl sm:max-w-6xl;
+  }
+
+  .top-nav-wrap {
+    @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
+  }
+
+  .logo {
+    @apply absolute py-1 text-xl font-semibold sm:static sm:text-2xl;
+  }
+
+  .hamburger-menu {
+    @apply self-end p-1 sm:hidden;
+  }
+
+  .hamburger-menu svg {
+    @apply h-6 w-6 scale-125 fill-skin-base;
+  }
+
+  nav {
+    @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
+  }
+
+  nav ul {
+    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+  }
+
+  nav ul li {
+    @apply col-span-2 flex items-center justify-center;
+  }
+
+  nav ul li a {
+    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
+  }
+
+  nav ul li:nth-last-child(2) a {
+    @apply w-auto;
+  }
+
+  nav ul li:nth-last-child(1),
+  nav ul li:nth-last-child(2) {
+    @apply col-span-1;
+  }
+
+  nav a.active {
+    @apply underline decoration-wavy decoration-2 underline-offset-4;
+  }
+
+  nav a.active svg {
+    @apply fill-skin-accent;
+  }
+
+  nav button {
+    @apply p-1;
+  }
+
+  nav button svg {
+    @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
+  }
+
+  #theme-btn {
+    @apply p-3 sm:p-1 theme-toggle-btn;
+  }
+
+  #theme-btn svg {
+    @apply scale-125 transition-transform duration-300 hover:rotate-45 sm:scale-100;
+  }
+
+  .theme-toggle-btn {
+    @apply relative flex items-center justify-center p-2 w-12 h-12 rounded-full border-2 border-gray-400 dark:border-gray-600 shadow-md transition-colors duration-300;
+  }
+
+  .theme-toggle-btn::before {
+    content: "";
+
+    @apply absolute inset-0 rounded-full bg-gradient-to-r from-pink-500 to-yellow-500 opacity-0 transition-opacity duration-300;
+  }
+
+  .theme-toggle-btn:hover::before {
+    @apply opacity-100;
+  }
+
+  .theme-icon {
+    @apply w-6 h-6 transition-all duration-300 ease-in-out;
+  }
+
+  .menu-icon line {
+    @apply transition-opacity duration-75 ease-in-out;
+  }
+
+  .menu-icon .close {
+    opacity: 0;
+  }
+
+  .menu-icon.is-active .line {
+    @apply opacity-0;
+  }
+
+  .menu-icon.is-active .close {
+    @apply opacity-100;
+  }
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--header-bg);
+    transition:
+      background-color 0.3s,
+      backdrop-filter 0.3s,
+      -webkit-backdrop-filter 0.3s;
+  }
+
+  .header.scrolled {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+</style>
