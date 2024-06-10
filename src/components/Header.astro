@@ -244,6 +244,7 @@ const { activeNav } = Astro.props;
   .menu-icon.is-active .close {
     @apply opacity-100;
   }
+
   .header {
     position: fixed;
     top: 0;
@@ -256,8 +257,20 @@ const { activeNav } = Astro.props;
       -webkit-backdrop-filter 0.3s;
   }
 
+  .header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    backdrop-filter: inherit;
+    -webkit-backdrop-filter: inherit;
+    z-index: -1;
+  }
+
   .header.scrolled {
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 </style>
