@@ -154,9 +154,10 @@ body {
     color 0.3s;
 }
 
-/* Ensure content below the header has enough space */
-#main-content {
-  padding-top: 150px; /* Adjust this value as needed */
+/* New styles to ensure content is not hidden beneath the header */
+body {
+  margin: 0;
+  padding-top: 120px; /* Adjust this value to the height of your header */
 }
 
 @layer components {
